@@ -4,6 +4,7 @@ name: Build
 env:
   Branch: ${{github.ref_name}}
   Configuration: Release
+  Platform: x86
   Artifacts: build/Release/
   Solution: AcManager.sln
   Executable: ${{github.event.repository.name}}.exe
@@ -37,7 +38,7 @@ jobs:
       run: nuget restore ${{env.Solution}}
 
     - name: Build
-      run: msbuild /m ${{env.Solution}} /p:Configuration="${{env.Configuration}}"
+      run: msbuild /m ${{env.Solution}} /p:Configuration="${{env.Configuration}}" /p:Platform="${{env.Platform}}"
 
     - name: List files
       run: ls -R
