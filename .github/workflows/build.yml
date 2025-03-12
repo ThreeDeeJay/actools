@@ -5,7 +5,7 @@ env:
   Branch: ${{github.ref_name}}
   Configuration: Release
   Artifacts: build/Release/
-  Solution: ${{github.event.repository.name}}.sln
+  Solution: AcManager.sln
   Executable: ${{github.event.repository.name}}.exe
 
 on:
